@@ -1,3 +1,3 @@
 #!/bin/bash
-perl -ne 'print unless (0 == $. % 2)'
+nl -b a | cut -b 6- | grep "^[13579]" | cut -b 3-
 
