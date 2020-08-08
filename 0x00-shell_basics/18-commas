@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(ls -ma --file-type)
+ls -ma --file-type
