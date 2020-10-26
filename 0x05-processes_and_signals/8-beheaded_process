@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # this script kills task 7 without using SIGTERM
-pkill -KILL 7-highlander
+pkill -KILL -x "7-highlander"
