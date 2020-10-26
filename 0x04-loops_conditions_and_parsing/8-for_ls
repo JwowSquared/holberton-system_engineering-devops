@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script modifies the output of ls
+list=$(ls)
+for line in $list
+do
+	echo "$line" | cut -d "-" -f 2
+done
