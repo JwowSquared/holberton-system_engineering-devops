@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# this script matches all lines from task 1's output that include the word bash
+# shellcheck disable=SC2009
+ps -aux --forest | grep bash
