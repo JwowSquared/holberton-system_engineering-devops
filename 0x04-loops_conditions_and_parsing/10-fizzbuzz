@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# This script prints the classic FizzBuzz
+for i in $(seq 1 100)
+do
+	line=""
+	if [ $(( i % 3 )) -eq 0 ]
+	then
+		line="${line}Fizz"
+	fi
+	if [ $(( i % 5 )) -eq 0 ]
+	then
+		line="${line}Buzz"
+	fi
+	if [ "$line" = "" ]
+	then
+		line="$i"
+	fi
+	echo "$line"
+done
