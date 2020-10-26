@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # this script displays To infinity and beyond infinitely, and is immune to SIGTERM
+trap "echo I am invincible!!!" SIGTERM
 loop=true
 while [ $loop ]
 do
@@ -7,4 +8,3 @@ do
 	sleep 2
 done
 
-trap "echo I am invincible!!!" SIGTERM
