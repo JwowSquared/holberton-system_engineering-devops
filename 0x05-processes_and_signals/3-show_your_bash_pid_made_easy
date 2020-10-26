@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# this script matches all lines from task 1's output that include the word bash
+out=$(pgrep -f bash)
+for line in $out
+do
+	echo "$line bash"
+done
