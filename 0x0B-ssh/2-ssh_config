@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# config file to bypass password
+Host 35.231.55.129
+IdentityFile ~/.ssh/holberton
