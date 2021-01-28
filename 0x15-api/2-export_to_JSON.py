@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """x"""
-from csv import
+import json
 import requests
 from sys import argv
 
