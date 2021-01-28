@@ -19,9 +19,9 @@ if __name__ == "__main__":
 
     for task in todos:
         if task.get("userId") == target:
-            tasks.append(task.get("title"))
             total += 1
             if task.get("completed"):
+            tasks.append(task.get("title"))
                 done += 1
 
     out = "Employee {} is done with tasks({:d}/{:d}):"
