@@ -2,28 +2,23 @@
 """x"""
 import json
 import requests
-from sys import argv
 
 if __name__ == "__main__":
     users = requests.get("http://jsonplaceholder.typicode.com/users").json()
     todos = requests.get("http://jsonplaceholder.typicode.com/todos").json()
-    fields = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
-    target = int(argv[1])
-    username = ""
-    tasks = {}
+    out = {}
 
     for user in users:
-        if user.get("id") == target:
-            username = user.get("username")
-            break
+        username = user.get("username")
+        target = user.get("id")
+        tasks = {}
+        for task in todos:
+            if task.get("id") == target:
+                tasks.update({task.get("title"): task.get("completed")})
+        emp = []
+        for t, c in tasks.items():
+            emp.append({"task": t, "completed": c, "username": username})
+        out.update({str(target): emp})
 
-    for task in todos:
-        if task.get("userId") == target:
-            tasks.update({task.get("title"): task.get("completed")})
-
-    out = []
-    for t, c in tasks.items():
-        out.append({"task": t, "completed": c, "username": username})
-
-    with open("{}.json".format(target), "w") as f:
+    with open("todo_all_employees.json", "w") as f:
         json.dump({argv[1]: out}, f)
