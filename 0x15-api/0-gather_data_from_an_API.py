@@ -21,7 +21,7 @@ if __name__ == "__main__":
         if task.get("userId") == target:
             total += 1
             if task.get("completed"):
-            tasks.append(task.get("title"))
+                tasks.append(task.get("title"))
                 done += 1
 
     out = "Employee {} is done with tasks({:d}/{:d}):"
