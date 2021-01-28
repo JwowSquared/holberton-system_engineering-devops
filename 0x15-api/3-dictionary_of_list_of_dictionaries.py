@@ -21,4 +21,4 @@ if __name__ == "__main__":
         out.update({str(target): emp})
 
     with open("todo_all_employees.json", "w") as f:
-        json.dump({argv[1]: out}, f)
+        json.dump(out, f)
