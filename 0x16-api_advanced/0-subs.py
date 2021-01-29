@@ -8,6 +8,8 @@ def number_of_subscribers(subreddit):
     h = {"User-Agent": "Reddit Scraper"}
     url = "https://www.reddit.com/r/{}/about.json"
     raw = requests.get(url.format(subreddit), headers=h, allow_redirects=False)
+    if not raw:
+        return 0
     out = raw.json().get("data").get("subscribers")
     if out:
         return out
