@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# script that replaces the nginx enabled sites with the available sites
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
