@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# script changes the user running the nginx service from root to user nginx
+# change the ownership and permissions of the nginx.conf to user nginx
+chown nginx etc/nginx/nginx.conf
+chmod 700 etc/nginx/nginx.conf
+# change the default port from 80 to 8080
+sudo sed -i "s/80/8080/" etc/nginx/sites-available/default
+# restarting nginx would fail if the apache2 processes arent killed
+sudo pkill apache2
+# restart as nginx
+sudo -u nginx service nginx restart
