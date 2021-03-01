@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# installs nginx, now with header X-Served-By
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Holberton School" | sudo tee /var/www/html/index.html
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
+A="|rewrite ^/redirect_me https://twitter.com/littleautomaton/status/1342210312829693952?s=21 permanent;"
+B="|error_page 404 /custom_404.html;"
+C="|location = /custom_404.html {\n||root /usr/share/nginx/html;\n||internal;\n|}"
+D="|add_header X-Served_By $(hostname);"
+sudo sed -i "/^server {/a $A\n$B\n$C\n$D" /etc/nginx/sites-available/default
+sudo sed -i "s/|/$(echo a | tr 'a' '\t')/g" /etc/nginx/sites-available/default
+sudo service nginx start
