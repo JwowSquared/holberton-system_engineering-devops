@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# installs nginx with Holberton School in the index, with a redirect to woerm
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Holberton School" | sudo tee /var/www/html/index.html
+sudo sed -i "/server {/a \trewrite ^/redirect_me https://twitter.com/littleautomaton/status/1342210312829693952?s=21 permanent;" /etc/nginx/sites-available/default
+sudo service nginx restart
