@@ -5,5 +5,5 @@ sudo apt-get -y install nginx
 echo "Holberton School" | sudo tee /var/www/html/index.html
 echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
 sudo sed -i "/^server {/a ::t::rewrite ^/redirect_me https://twitter.com/littleautomaton/status/1342210312829693952?s=21 permanent;\n::t::error_page 404 /custom_404.html;\n::t::location = /custom_404.html {\n::t::::t::root /usr/share/nginx/html;\n::t::::t::internal;\n::t::}" /etc/nginx/sites-available/default
-sudo sed -i "s/::t::/$(echo a | tr 'a' '\t')/" /etc/nginx/sites-available/default
+sudo sed -i "s/::t::/$(echo a | tr 'a' '\t')/g" /etc/nginx/sites-available/default
 sudo service nginx start
